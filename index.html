@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#15332d" />
+    <meta
+      name="description"
+      content="Responsive manager dashboard for the Devantra ERP frontend assignment."
+    />
+    <title>Devantra ERP | Manager Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#dashboard-main">Skip to dashboard content</a>
+    <svg class="app-sprite" aria-hidden="true" focusable="false">
+      <defs>
+        <symbol id="icon-menu" viewBox="0 0 24 24">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </symbol>
+        <symbol id="icon-search" viewBox="0 0 24 24">
+          <path d="M11 5a6 6 0 1 0 0 12a6 6 0 0 0 0-12Z" />
+          <path d="m19 19-3.4-3.4" />
+        </symbol>
+        <symbol id="icon-settings" viewBox="0 0 24 24">
+          <path
+            d="M12 8.6A3.4 3.4 0 1 0 12 15.4A3.4 3.4 0 0 0 12 8.6Z"
+          />
+          <path
+            d="M19.4 15a1.5 1.5 0 0 0 .3 1.7l.1.1a1.8 1.8 0 0 1-2.5 2.5l-.1-.1a1.5 1.5 0 0 0-1.7-.3a1.5 1.5 0 0 0-.9 1.4V20a1.8 1.8 0 0 1-3.6 0v-.2a1.5 1.5 0 0 0-.9-1.4a1.5 1.5 0 0 0-1.7.3l-.1.1a1.8 1.8 0 0 1-2.5-2.5l.1-.1a1.5 1.5 0 0 0 .3-1.7a1.5 1.5 0 0 0-1.4-.9H4a1.8 1.8 0 0 1 0-3.6h.2a1.5 1.5 0 0 0 1.4-.9a1.5 1.5 0 0 0-.3-1.7l-.1-.1a1.8 1.8 0 0 1 2.5-2.5l.1.1a1.5 1.5 0 0 0 1.7.3a1.5 1.5 0 0 0 .9-1.4V4a1.8 1.8 0 0 1 3.6 0v.2a1.5 1.5 0 0 0 .9 1.4a1.5 1.5 0 0 0 1.7-.3l.1-.1a1.8 1.8 0 0 1 2.5 2.5l-.1.1a1.5 1.5 0 0 0-.3 1.7a1.5 1.5 0 0 0 1.4.9H20a1.8 1.8 0 0 1 0 3.6h-.2a1.5 1.5 0 0 0-1.4.9Z"
+          />
+        </symbol>
+        <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+          <path d="m6 9 6 6 6-6" />
+        </symbol>
+        <symbol id="icon-dashboard" viewBox="0 0 24 24">
+          <path d="M4 4h7v7H4zM13 4h7v4h-7zM13 10h7v10h-7zM4 13h7v7H4z" />
+        </symbol>
+        <symbol id="icon-team" viewBox="0 0 24 24">
+          <path d="M8 11a3 3 0 1 0 0-6a3 3 0 0 0 0 6Z" />
+          <path d="M17 12a2.5 2.5 0 1 0 0-5a2.5 2.5 0 0 0 0 5Z" />
+          <path d="M3.5 19a4.5 4.5 0 0 1 9 0M13 19a4 4 0 0 1 7.5-1.8" />
+        </symbol>
+        <symbol id="icon-tasks" viewBox="0 0 24 24">
+          <path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01" />
+        </symbol>
+        <symbol id="icon-activity" viewBox="0 0 24 24">
+          <path d="M3 12h4l2.5-6L14 18l2.5-6H21" />
+        </symbol>
+        <symbol id="icon-calendar" viewBox="0 0 24 24">
+          <path d="M7 3v4M17 3v4M4 9h16M5 6h14a1 1 0 0 1 1 1v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a1 1 0 0 1 1-1Z" />
+        </symbol>
+        <symbol id="icon-chart" viewBox="0 0 24 24">
+          <path d="M4 19V5M4 19h16M8 16V9M12 16V7M16 16v-4" />
+        </symbol>
+        <symbol id="icon-star" viewBox="0 0 24 24">
+          <path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.2 6.4 20.2l1.1-6.2L3 9.6l6.2-.9L12 3Z" />
+        </symbol>
+        <symbol id="icon-plus" viewBox="0 0 24 24">
+          <path d="M12 5v14M5 12h14" />
+        </symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24">
+          <path d="m6 6 12 12M18 6 6 18" />
+        </symbol>
+        <symbol id="icon-clock" viewBox="0 0 24 24">
+          <path d="M12 6v6l4 2" />
+          <path d="M12 21a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z" />
+        </symbol>
+        <symbol id="icon-bell" viewBox="0 0 24 24">
+          <path d="M6 9a6 6 0 0 1 12 0v4l1.5 2.5H4.5L6 13V9Z" />
+          <path d="M10 18a2 2 0 0 0 4 0" />
+        </symbol>
+        <symbol id="icon-briefcase" viewBox="0 0 24 24">
+          <path d="M9 6V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" />
+          <path d="M3 8h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8Z" />
+          <path d="M3 12h18" />
+        </symbol>
+      </defs>
+    </svg>
+
+    <div class="page-shell">
+      <div class="page-overlay" data-sidebar-overlay hidden></div>
+
+      <aside
+        class="sidebar"
+        id="app-sidebar"
+        data-sidebar
+        aria-label="Dashboard sidebar"
+      >
+        <div class="sidebar__brand">
+          <div class="brand-mark">D</div>
+          <div>
+            <p class="eyebrow">Devantra ERP</p>
+            <strong>Manager Console</strong>
+          </div>
+        </div>
+
+        <nav class="sidebar__nav" aria-label="Primary navigation">
+          <ul class="nav-list" data-nav-list></ul>
+        </nav>
+
+        <section class="sidebar__note">
+          <p class="eyebrow">Production note</p>
+          <h2>API-ready shell</h2>
+          <p>
+            Demo mode is enabled by default so the assignment can run even
+            before the real backend is connected.
+          </p>
+        </section>
+      </aside>
+
+      <div class="workspace">
+        <header class="topbar">
+          <div class="topbar__left">
+            <div class="topbar__identity">
+              <button
+                class="icon-button topbar__menu"
+                type="button"
+                data-sidebar-toggle
+                aria-label="Open navigation"
+                aria-expanded="false"
+                aria-controls="app-sidebar"
+              >
+                <svg viewBox="0 0 24 24">
+                  <use href="#icon-menu"></use>
+                </svg>
+              </button>
+
+              <a class="topbar__brand" href="#overview-section">
+                <span class="brand-mark brand-mark--small">D</span>
+                <span>Devantra ERP</span>
+              </a>
+            </div>
+
+            <div class="topbar__copy">
+              <p class="eyebrow">Operations cockpit</p>
+              <h1 data-manager-name>Manager Dashboard</h1>
+              <p class="topbar__subtitle" data-manager-subtitle>
+                Team visibility for the current delivery window.
+              </p>
+            </div>
+          </div>
+
+          <div class="topbar__right">
+            <button
+              class="icon-button"
+              type="button"
+              data-header-action="search"
+              aria-label="Search dashboard"
+            >
+              <svg viewBox="0 0 24 24">
+                <use href="#icon-search"></use>
+              </svg>
+            </button>
+
+            <button
+              class="icon-button"
+              type="button"
+              data-header-action="settings"
+              aria-label="Open settings"
+            >
+              <svg viewBox="0 0 24 24">
+                <use href="#icon-settings"></use>
+              </svg>
+            </button>
+
+            <div class="profile-menu" data-profile-menu>
+              <button
+                class="profile-chip"
+                type="button"
+                data-profile-toggle
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-controls="profile-dropdown-panel"
+              >
+                <span class="profile-chip__avatar" data-profile-initials>PS</span>
+                <span class="profile-chip__copy">
+                  <strong data-profile-full-name>Priya Sharma</strong>
+                  <span data-profile-role>Delivery Manager</span>
+                </span>
+                <svg viewBox="0 0 24 24">
+                  <use href="#icon-chevron-down"></use>
+                </svg>
+              </button>
+
+              <div
+                class="profile-dropdown"
+                id="profile-dropdown-panel"
+                data-profile-dropdown
+                role="menu"
+                hidden
+              >
+                <button type="button" data-profile-action="team" role="menuitem">
+                  Jump to team roster
+                </button>
+                <button
+                  type="button"
+                  data-profile-action="settings"
+                  role="menuitem"
+                >
+                  Account settings
+                </button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main
+          class="dashboard-grid"
+          id="dashboard-main"
+          aria-label="Manager dashboard"
+        >
+          <section
+            class="panel dashboard-panel dashboard-panel--stats"
+            id="overview-section"
+            aria-labelledby="overview-title"
+          >
+            <div class="panel__header">
+              <div>
+                <p class="eyebrow">Snapshot</p>
+                <h2 id="overview-title">Operational overview</h2>
+              </div>
+              <span class="panel__badge">Live from dashboard state</span>
+            </div>
+            <div class="stats-grid" data-stats-grid></div>
+          </section>
+
+          <aside class="summary-stack dashboard-panel dashboard-panel--summary">
+            <section class="panel panel--compact" aria-labelledby="rating-title">
+              <div class="panel__header panel__header--tight">
+                <div>
+                  <p class="eyebrow">Health signal</p>
+                  <h2 id="rating-title">Team rating</h2>
+                </div>
+              </div>
+              <div data-rating-card></div>
+            </section>
+
+            <section class="panel panel--compact" aria-labelledby="progress-title">
+              <div class="panel__header panel__header--tight">
+                <div>
+                  <p class="eyebrow">Progress</p>
+                  <h2 id="progress-title">Daily completion</h2>
+                </div>
+              </div>
+              <div class="progress-grid" data-progress-grid></div>
+            </section>
+
+            <section class="panel panel--compact" aria-labelledby="actions-title">
+              <div class="panel__header panel__header--tight">
+                <div>
+                  <p class="eyebrow">Actions</p>
+                  <h2 id="actions-title">Quick actions</h2>
+                </div>
+              </div>
+              <div class="quick-actions" data-quick-actions></div>
+            </section>
+          </aside>
+
+          <section
+            class="panel dashboard-panel dashboard-panel--team"
+            id="team-section"
+            aria-labelledby="team-title"
+          >
+            <div class="panel__header">
+              <div>
+                <p class="eyebrow">Roster</p>
+                <h2 id="team-title">Team members</h2>
+              </div>
+              <button
+                class="button button--ghost"
+                type="button"
+                data-open-modal="member-modal"
+                aria-controls="member-modal"
+              >
+                <svg viewBox="0 0 24 24">
+                  <use href="#icon-plus"></use>
+                </svg>
+                Add member
+              </button>
+            </div>
+            <div class="stack-list" data-team-members></div>
+          </section>
+
+          <section
+            class="panel dashboard-panel dashboard-panel--activity"
+            id="activity-section"
+            aria-labelledby="activity-title"
+          >
+            <div class="panel__header">
+              <div>
+                <p class="eyebrow">Timeline</p>
+                <h2 id="activity-title">Recent activity</h2>
+              </div>
+            </div>
+            <div class="stack-list" data-activity-feed></div>
+          </section>
+
+          <section
+            class="panel dashboard-panel dashboard-panel--tasks"
+            id="tasks-section"
+            aria-labelledby="tasks-title"
+          >
+            <div class="panel__header">
+              <div>
+                <p class="eyebrow">Execution</p>
+                <h2 id="tasks-title">Active tasks</h2>
+              </div>
+              <button
+                class="button button--ghost"
+                type="button"
+                data-open-modal="task-modal"
+                aria-controls="task-modal"
+              >
+                <svg viewBox="0 0 24 24">
+                  <use href="#icon-plus"></use>
+                </svg>
+                Assign task
+              </button>
+            </div>
+            <div class="stack-list" data-active-tasks></div>
+          </section>
+
+          <section
+            class="panel dashboard-panel dashboard-panel--leave"
+            id="leave-section"
+            aria-labelledby="leave-title"
+          >
+            <div class="panel__header">
+              <div>
+                <p class="eyebrow">Approvals</p>
+                <h2 id="leave-title">Leave requests</h2>
+              </div>
+            </div>
+            <div class="stack-list" data-leave-requests></div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="modal-overlay" data-modal-overlay hidden></div>
+
+    <section
+      class="modal"
+      id="member-modal"
+      aria-hidden="true"
+      aria-modal="true"
+      role="dialog"
+      aria-labelledby="member-modal-title"
+      hidden
+      tabindex="-1"
+    >
+      <div class="modal__card">
+        <div class="modal__header">
+          <div>
+            <p class="eyebrow">Create</p>
+            <h2 id="member-modal-title">New member</h2>
+          </div>
+          <button
+            class="icon-button"
+            type="button"
+            data-close-modal="member-modal"
+            aria-label="Close new member modal"
+          >
+            <svg viewBox="0 0 24 24">
+              <use href="#icon-close"></use>
+            </svg>
+          </button>
+        </div>
+
+        <form class="modal__form" id="member-form" novalidate>
+          <label class="field">
+            <span>Full name</span>
+            <input
+              type="text"
+              name="fullName"
+              placeholder="Aarav Nair"
+              autocomplete="name"
+              minlength="2"
+              aria-describedby="member-fullName-error"
+              required
+            />
+            <span
+              class="field__error"
+              id="member-fullName-error"
+              aria-live="polite"
+            ></span>
+          </label>
+
+          <label class="field">
+            <span>Employee ID</span>
+            <input
+              type="text"
+              name="employeeId"
+              placeholder="EMP-108"
+              autocomplete="off"
+              minlength="3"
+              aria-describedby="member-employeeId-error"
+              required
+            />
+            <span
+              class="field__error"
+              id="member-employeeId-error"
+              aria-live="polite"
+            ></span>
+          </label>
+
+          <label class="field">
+            <span>Designation</span>
+            <input
+              type="text"
+              name="designation"
+              placeholder="Frontend Engineer"
+              autocomplete="organization-title"
+              minlength="2"
+              aria-describedby="member-designation-error"
+              required
+            />
+            <span
+              class="field__error"
+              id="member-designation-error"
+              aria-live="polite"
+            ></span>
+          </label>
+
+          <div class="modal__actions">
+            <button
+              class="button button--ghost"
+              type="button"
+              data-close-modal="member-modal"
+            >
+              Cancel
+            </button>
+            <button class="button button--primary" type="submit">
+              Save member
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section
+      class="modal"
+      id="task-modal"
+      aria-hidden="true"
+      aria-modal="true"
+      role="dialog"
+      aria-labelledby="task-modal-title"
+      hidden
+      tabindex="-1"
+    >
+      <div class="modal__card">
+        <div class="modal__header">
+          <div>
+            <p class="eyebrow">Assign</p>
+            <h2 id="task-modal-title">New task</h2>
+          </div>
+          <button
+            class="icon-button"
+            type="button"
+            data-close-modal="task-modal"
+            aria-label="Close assign task modal"
+          >
+            <svg viewBox="0 0 24 24">
+              <use href="#icon-close"></use>
+            </svg>
+          </button>
+        </div>
+
+        <form class="modal__form" id="task-form" novalidate>
+          <label class="field">
+            <span>Task name</span>
+            <input
+              type="text"
+              name="taskName"
+              placeholder="Refresh attendance widget"
+              minlength="3"
+              aria-describedby="task-taskName-error"
+              required
+            />
+            <span
+              class="field__error"
+              id="task-taskName-error"
+              aria-live="polite"
+            ></span>
+          </label>
+
+          <label class="field">
+            <span>Assignee</span>
+            <select
+              name="assignee"
+              data-assignee-select
+              aria-describedby="task-assignee-error"
+              required
+            ></select>
+            <span
+              class="field__error"
+              id="task-assignee-error"
+              aria-live="polite"
+            ></span>
+          </label>
+
+          <label class="field">
+            <span>Deadline</span>
+            <input
+              type="datetime-local"
+              name="deadline"
+              step="60"
+              aria-describedby="task-deadline-error"
+              required
+            />
+            <span
+              class="field__error"
+              id="task-deadline-error"
+              aria-live="polite"
+            ></span>
+          </label>
+
+          <label class="field">
+            <span>Total hours</span>
+            <input
+              type="number"
+              name="totalHours"
+              min="1"
+              max="80"
+              aria-describedby="task-totalHours-error"
+              required
+            />
+            <span
+              class="field__error"
+              id="task-totalHours-error"
+              aria-live="polite"
+            ></span>
+          </label>
+
+          <div class="modal__actions">
+            <button
+              class="button button--ghost"
+              type="button"
+              data-close-modal="task-modal"
+            >
+              Cancel
+            </button>
+            <button class="button button--primary" type="submit">
+              Assign task
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section
+      class="modal modal--wide"
+      id="reports-modal"
+      aria-hidden="true"
+      aria-modal="true"
+      role="dialog"
+      aria-labelledby="reports-modal-title"
+      hidden
+      tabindex="-1"
+    >
+      <div class="modal__card">
+        <div class="modal__header">
+          <div>
+            <p class="eyebrow">Bonus</p>
+            <h2 id="reports-modal-title">Active task report</h2>
+          </div>
+          <button
+            class="icon-button"
+            type="button"
+            data-close-modal="reports-modal"
+            aria-label="Close reports modal"
+          >
+            <svg viewBox="0 0 24 24">
+              <use href="#icon-close"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="report-table-wrap" data-reports-table></div>
+      </div>
+    </section>
+
+    <div class="toast" data-toast hidden role="status" aria-live="polite"></div>
+
+    <script>
+      window.DASHBOARD_CONFIG = {
+        apiBaseUrl: "",
+        demoMode: true,
+        requestTimeoutMs: 10000
+      };
+    </script>
+    <script src="./data.js"></script>
+    <script src="./api.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
