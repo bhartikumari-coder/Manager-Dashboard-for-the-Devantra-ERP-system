@@ -3,7 +3,7 @@
 
   const dashboardSeed = {
     manager: {
-      name: "Priya Sharma",
+      name: "Bharti Kumari",
       role: "Delivery Manager",
       subtitle: "Team visibility for the current delivery window.",
       initials: "PS"
