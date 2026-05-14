@@ -6,7 +6,7 @@
       name: "Bharti Kumari",
       role: "Delivery Manager",
       subtitle: "Team visibility for the current delivery window.",
-      initials: "PS"
+      initials: "BK"
     },
     navItems: [
       { id: "overview", label: "Overview", icon: "dashboard", target: "overview-section", active: true },
