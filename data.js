@@ -3,10 +3,10 @@
 
   const dashboardSeed = {
     manager: {
-      name: "Bharti Kumari",
+      name: "Pooja Kumari",
       role: "Delivery Manager",
       subtitle: "Team visibility for the current delivery window.",
-      initials: "BK"
+      initials: "PK"
     },
     navItems: [
       { id: "overview", label: "Overview", icon: "dashboard", target: "overview-section", active: true },
